@@ -41,7 +41,7 @@ export default function App() {
         alert('Thank You!');
       } else {
         alert(
-          'Try Again! You seem like a robot.. prove that you are human, by acting like one'
+          "Oof! Our system thinks that you're a robot. Help us prove it wrong."
         );
       }
     } catch ({ message }) {
@@ -55,30 +55,31 @@ export default function App() {
       <ReCAPTCHA sitekey={captchaKey} size="invisible" ref={reCapRef} />
       <Row className=" vh-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
         <Col className="text-center">
-          <Title>Hi, let’s welcome Boris!</Title>
+          <Title>Hi, help us welcome Boris!</Title>
           <Message>
             <Headline>
               Boris Volynov is the last living member of humanity’s first group
               of space travelers.
             </Headline>
             <Headline>
-              As we step out of our cosmic cradle, it is important to remember
+              As we leap out of our cosmic cradle, it is important to remember
               the pioneers who took the first steps. And their sacrifices along
               the way.
             </Headline>
             <Headline>
-              Boris is one of these pioneers. And he has one heck of a story.
+              Boris is one of these pioneers with one heck of a story. And we’re
+              hoping that he’ll honor us by telling us his story.
             </Headline>
             <Headline>
-              We would like to interview him for posterity. To preserve and
-              honor his legacy.
+              We want to preserve this legacy for posterity.
             </Headline>
+          </Message>
 
-            <Form onSubmit={signUp} className="mt-4">
+            <Form onSubmit={signUp} className="mt-4 input-group-large">
               <Group controlId="formBasicInfo">
                 <Form.Control
                   size="lg"
-                  placeholder="Full Name"
+                  placeholder="Name"
                   {...register('fullName', { required: true })}
                 />
               </Group>
@@ -86,7 +87,7 @@ export default function App() {
                 <Control
                   size="lg"
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Your Email (we pinky promise to never spam)"
                   {...register('email')}
                 />
                 <Text className="text-muted">
@@ -104,7 +105,7 @@ export default function App() {
                 Submit
               </Button>
             </Form>
-          </Message>
+
         </Col>
       </Row>
       {/* <Router>

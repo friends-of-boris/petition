@@ -7,13 +7,12 @@ export const Headline = styled.p.attrs({
 `;
 
 export const Message = styled.div.attrs({
-  className: 'mb-3 mx-auto',
+  className: 'mb-xl-5 mx-auto',
 })`
-  max-width: 85ch;
+  max-width: 55ex;
 `;
 
 export const Title = styled.h1.attrs({
   className: 'mb-3',
 })`
-  font-size: 3rem;
 `;
