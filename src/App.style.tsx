@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Headline = styled.p.attrs({
-  className: 'mb-1',
+  className: 'mb-2',
 })`
   color: slategrey;
 `;
