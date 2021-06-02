@@ -62,7 +62,7 @@ export default function App() {
               We will send you an email when the event is planned.
             </Headline>
             <Headline>
-              Please feel free to jump in the <a href="#">Boris room</a>
+              Please feel free to jump in the <a href="https://www.clubhouse.com/room/xp9ODK4K">Boris room</a>
             </Headline>
           </Message>
         </Col>
