@@ -39,7 +39,6 @@ export default function App() {
           token,
         });
         setCaptchaSuccess(true);
-        alert('Thank You!');
       } else {
         alert(
           "Oof! Our system thinks that you're a robot. Help us prove it wrong."
@@ -52,7 +51,7 @@ export default function App() {
   });
   if(captchaSuccess){
     return(
-      <Container fluid="sm" className="align-middle height100">
+      <Container fluid="sm" className="align-middle h-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
         <Col className="text-center">
           <Title>Thanks for signing the petition!</Title>
           <Message>
@@ -73,7 +72,7 @@ export default function App() {
   return (
     <Container fluid="sm" className="align-middle">
       <ReCAPTCHA sitekey={captchaKey} size="invisible" ref={reCapRef} />
-      <Row className=" vh-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
+      <Row className="vh-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
         <Col className="text-center">
           <Title>Hi, help us welcome Boris!</Title>
           <Message>
