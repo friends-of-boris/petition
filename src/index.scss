@@ -39,8 +39,14 @@ html {
       font-size: var(--step-3);
     }
 
-    input {
-      font-size: var(--step--1);
+    form {
+      max-width: 40ch;
+      margin: 0 auto;
     }
+    .tasteful-text{
+      font-size: calc((var(--step--2)+var(--step--1))/2);
+      font-color: #9C979A;
+    }
+
   }
 }

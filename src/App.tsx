@@ -63,7 +63,7 @@ export default function App() {
             </Headline>
             <Headline>
               As we leap out of our cosmic cradle, it is important to remember
-              the pioneers who took the first steps. And their sacrifices along
+              the pioneers who took our first steps. And their sacrifices along
               the way.
             </Headline>
             <Headline>
@@ -78,6 +78,7 @@ export default function App() {
             <Form onSubmit={signUp} className="mt-4 input-group-large">
               <Group controlId="formBasicInfo">
                 <Form.Control
+                  className="tasteful-text"
                   size="lg"
                   placeholder="Name"
                   {...register('fullName', { required: true })}
@@ -85,14 +86,12 @@ export default function App() {
               </Group>
               <Group controlId="formBasicEmail">
                 <Control
+                  className="tasteful-text"
                   size="lg"
                   type="email"
-                  placeholder="Your Email (we pinky promise to never spam)"
+                  placeholder="Email"
                   {...register('email')}
                 />
-                <Text className="text-muted">
-                  We&apos;ll never share your email with anyone else.
-                </Text>
               </Group>
               {/* <Group controlId="formBasicCheckbox">
                 <Check
@@ -104,6 +103,9 @@ export default function App() {
               <Button size="lg" variant="dark" type="submit" className="mt-4" block>
                 Submit
               </Button>
+              <Text className="text-muted">
+                ps - we’d never share your email with anyone else.
+              </Text>
             </Form>
 
         </Col>
