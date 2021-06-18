@@ -2,7 +2,7 @@ import { Button, Container, Row, Col, Form } from 'react-bootstrap';
 // import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
 // import PageOne from './PageOne';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Headline, Message, Title } from './App.style';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
@@ -20,13 +20,14 @@ type formValues = {
 };
 
 export default function App() {
+  const [captchaSuccess, setCaptchaSuccess] = useState(false)
   const reCapRef = useRef<ReCAPTCHA>();
   const { register, handleSubmit } = useForm<formValues>();
 
   const signUp = handleSubmit(async ({ fullName, email }) => {
     try {
       const token = await reCapRef.current.executeAsync();
-      console.log('token:', token);
+
       reCapRef.current.reset();
 
       const peopleCollection = firebase.firestore().collection('people');
@@ -37,8 +38,7 @@ export default function App() {
           timeStamp: new Date(),
           token,
         });
-
-        alert('Thank You!');
+        setCaptchaSuccess(true);
       } else {
         alert(
           "Oof! Our system thinks that you're a robot. Help us prove it wrong."
@@ -49,11 +49,30 @@ export default function App() {
       console.error(message);
     }
   });
-
+  if(captchaSuccess){
+    return(
+      <Container fluid="sm" className="align-middle h-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
+        <Col className="text-center">
+          <Title>Thanks for signing the petition!</Title>
+          <Message>
+            <Headline>
+              You have helped us along in our mission to hear Boris&apos;s story.
+            </Headline>
+            <Headline>
+              We will send you an email when the event is planned.
+            </Headline>
+            <Headline>
+              Please feel free to jump in the <a href="https://www.clubhouse.com/room/xp9ODK4K">Boris room</a>
+            </Headline>
+          </Message>
+        </Col>
+      </Container>
+    )
+  }
   return (
     <Container fluid="sm" className="align-middle">
       <ReCAPTCHA sitekey={captchaKey} size="invisible" ref={reCapRef} />
-      <Row className=" vh-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
+      <Row className="vh-100 d-flex py-5 align-items-center justify-content-md-center overflow-auto">
         <Col className="text-center">
           <Title>Hi, help us welcome Boris!</Title>
           <Message>
